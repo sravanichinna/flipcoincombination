@@ -63,3 +63,20 @@ echo "HEAD WON"
 else
 echo "TAIL WON"
 fi
+echo "HH percent:" `echo $hhcount | awk'{print ($1/20)*100}'` "%"
+echo "HT percent:" `echo $htount | awk'{print ($1/20)*100}'` "%"
+echo "TH percent:" `echo $thcount | awk'{print ($1/20)*100}'` "%"
+echo "TT percent:" `echo $ttcount | awk'{print ($1/20)*100}'` "%"
+echo "result:"
+if [[ $hhcount > $htcount && $hhcount > $thcount && $hhcount > $ttcount ]]
+then
+echo "HEAD HEAD WON"
+elif [[ $htcount > $hhcount && $htcount >$thcount && $htcount > $ttcount ]]
+then
+echo "HEAD TAIL WON"
+elif [[ $thcount > $hhcount && $thcount >$htcount && $thcount > $ttcount ]]
+then 
+echo"TAIL HEAD WON"
+else
+echo "TAIL TAIL WON"
+fi
